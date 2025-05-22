@@ -1,0 +1,10 @@
+spring:
+  config:
+    import: configserver:http://localhost:8888
+  cloud:
+    config:
+      enabled: true
+      fail-fast: true
+      username: myUsername
+      password: mySecretPassword
+      override-system-properties: false

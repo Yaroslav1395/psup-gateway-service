@@ -1,0 +1,17 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: GATEWAY_SERVICE
+  cloud:
+    config:
+      enabled: false
+eureka:
+  client:
+    register-with-eureka: false
+    enabled: false
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
