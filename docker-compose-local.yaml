@@ -1,0 +1,19 @@
+services:
+  storage-service:
+    image: psup-storage/storage-service
+    container_name: storage_service
+    depends_on:
+      - postgres
+    ports:
+      - "9999:9999"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - CONFIG_SERVER_USERNAME:myUsername
+      - CONFIG_SERVER_PASSWORD:mySecretPassword
+    networks:
+      - psup-shared-net
+
+networks:
+  psup-shared-net:
+    external: true

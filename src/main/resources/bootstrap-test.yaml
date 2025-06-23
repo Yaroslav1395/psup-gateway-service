@@ -11,3 +11,5 @@ spring:
       uri: ${CONFIG_SERVER_URL:http://localhost:8888}
       username: ${CONFIG_SERVER_USERNAME:myUsername}
       password: ${CONFIG_SERVER_PASSWORD:mySecretPassword}
+    discovery:
+      enabled: true
