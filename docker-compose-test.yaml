@@ -1,0 +1,18 @@
+services:
+  storage-service:
+    image: psup-gateway/gateway-service
+    container_name: gateway_service
+    ports:
+      - "9999:9999"
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+      - CONFIG_SERVER_URL=http://config-server:8888
+      - CONFIG_SERVER_USERNAME:myUsername
+      - CONFIG_SERVER_PASSWORD:mySecretPassword
+      - EUREKA_URL=http://eureka-server:8761/eureka
+    networks:
+      - psup-shared-net
+
+networks:
+  psup-shared-net:
+    external: true

@@ -10,7 +10,6 @@ eureka:
   client:
     register-with-eureka: false
     enabled: false
-
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
