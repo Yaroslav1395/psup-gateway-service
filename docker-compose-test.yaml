@@ -1,5 +1,5 @@
 services:
-  storage-service:
+  gateway-service:
     image: psup-gateway/gateway-service
     container_name: gateway_service
     ports:
@@ -10,6 +10,9 @@ services:
       - CONFIG_SERVER_USERNAME:myUsername
       - CONFIG_SERVER_PASSWORD:mySecretPassword
       - EUREKA_URL=http://eureka-server:8761/eureka
+      - PRODUCT_SERVICE_URL=lb://PRODUCT-SERVICE
+      - MANUFACTURE_SERVICE_URL=lb://MANUFACTURE-SERVICE
+      - STORAGE_SERVICE_URL=lb://STORAGE-SERVICE
     networks:
       - psup-shared-net
 
