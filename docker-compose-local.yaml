@@ -1,9 +1,7 @@
 services:
-  storage-service:
-    image: psup-storage/storage-service
-    container_name: storage_service
-    depends_on:
-      - postgres
+  gateway-service:
+    image: psup-gateway/gateway-service
+    container_name: gateway-service
     ports:
       - "9999:9999"
     environment:
@@ -11,6 +9,9 @@ services:
       - CONFIG_SERVER_URL=http://config-server:8888
       - CONFIG_SERVER_USERNAME:myUsername
       - CONFIG_SERVER_PASSWORD:mySecretPassword
+      - PRODUCT_SERVICE_URL=http://product-service:8080
+      - MANUFACTURE_SERVICE_URL=http://manufacture-service:8081
+      - STORAGE_SERVICE_URL=http://storage-service:8082
     networks:
       - psup-shared-net
 
