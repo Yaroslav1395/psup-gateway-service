@@ -2,7 +2,7 @@ server:
   port: 9999
 spring:
   application:
-    name: GATEWAY_SERVICE
+    name: GATEWAY-SERVICE
   cloud:
     config:
       enabled: false
@@ -122,6 +122,10 @@ management:
     web:
       exposure:
         include: "*"
+  tracing:
+    enabled: false
+    sampling:
+      probability: 0.0
   endpoint:
     health:
       show-details: always
