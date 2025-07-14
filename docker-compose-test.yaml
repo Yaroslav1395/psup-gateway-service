@@ -2,6 +2,14 @@ services:
   gateway-service:
     image: psup-gateway/gateway-service
     container_name: gateway_service
+    labels:
+      collect_logs_with_filebeat: "true"
+      decode_log_event_to_json_object: "true"  # если логи в JSON
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
     ports:
       - "9999:9999"
     environment:
@@ -14,6 +22,8 @@ services:
       - PRODUCT_SERVICE_URL=lb://PRODUCT-SERVICE
       - MANUFACTURE_SERVICE_URL=lb://MANUFACTURE-SERVICE
       - STORAGE_SERVICE_URL=lb://STORAGE-SERVICE
+    volumes:
+      - ~/Universal_Trade_Platform/logs/gateway-service:/root/Universal_Trade_Platform/logs/gateway-service
     networks:
       - psup-shared-net
 

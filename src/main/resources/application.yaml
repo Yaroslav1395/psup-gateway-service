@@ -129,3 +129,5 @@ management:
   endpoint:
     health:
       show-details: always
+log:
+  path: ${user.home}/Universal_Trade_Platform/logs/gateway-service

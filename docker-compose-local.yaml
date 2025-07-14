@@ -12,6 +12,8 @@ services:
       - PRODUCT_SERVICE_URL=http://product-service:8080
       - MANUFACTURE_SERVICE_URL=http://manufacture-service:8081
       - STORAGE_SERVICE_URL=http://storage-service:8082
+    volumes:
+      - ~/Universal_Trade_Platform/logs/gateway-service:/root/Universal_Trade_Platform/logs/gateway-service
     networks:
       - psup-shared-net
 
